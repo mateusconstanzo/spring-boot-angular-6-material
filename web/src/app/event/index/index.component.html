@@ -1,0 +1,36 @@
+<div class="button-row">
+  <button mat-fab (click)="form()">
+    <mat-icon>+</mat-icon>
+  </button>
+</div>
+
+<mat-card *ngFor="let event of events">
+
+  <div class="actions">
+
+    <button mat-mini-fab color="primary" (click)="edit(event.id)" title="Editar">
+      <mat-icon>edit</mat-icon>
+    </button>
+    <button mat-mini-fab color="primary" (click)="delete(event)" title="Deletar">
+      <mat-icon>delete</mat-icon>
+    </button>
+  </div>
+
+  <mat-card-header>
+
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title>
+      {{ event.name }}
+    </mat-card-title>
+
+    <mat-card-subtitle>
+      {{ event.startDate }} {{ event.startHour }} - {{ event.endDate }} {{ event.endHour }}
+    </mat-card-subtitle>
+
+  </mat-card-header>
+
+  <mat-card-content>
+    {{ event.description }}
+  </mat-card-content>
+
+</mat-card>

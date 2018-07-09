@@ -1,0 +1,11 @@
+spring:
+    jpa:
+      database: MYSQL
+      hibernate:
+        ddl-auto: update
+
+    datasource:
+      url: jdbc:mysql://localhost:3306/events
+      username: user
+      password: password
+      driver-class-name: com.mysql.jdbc.Driver

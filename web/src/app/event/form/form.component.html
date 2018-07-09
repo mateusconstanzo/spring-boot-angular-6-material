@@ -1,0 +1,90 @@
+<mat-card>
+
+  <mat-card-content>
+
+    <form [formGroup]="form" (ngSubmit)="save(form.value)">
+
+      <input matInput type="text" formControlName="id" hidden="true" />
+
+      <mat-form-field>
+        <input matInput type="text" placeholder="Nome" formControlName="name" />
+        <mat-error>
+          <app-field-error-display [formGroup]="form" [field]="'name'"></app-field-error-display>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput type="text" placeholder="Descrição" formControlName="description" />
+        <mat-error>
+          <app-field-error-display [formGroup]="form" [field]="'description'"></app-field-error-display>
+        </mat-error>
+      </mat-form-field>
+
+      <div class="date">
+
+        <mat-form-field>
+          <input matInput [matDatepicker]="picker" placeholder="Data de início" formControlName="startDate">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+          <mat-error>
+            <app-field-error-display [formGroup]="form" [field]="'startDate'"></app-field-error-display>
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input type="text" placeholder="Hora de início" formControlName="startHour" aria-label="Number" matInput [matAutocomplete]="auto">
+          <mat-autocomplete #auto="matAutocomplete">
+            <mat-option *ngFor="let number of numbers">
+              {{ number }}
+            </mat-option>
+          </mat-autocomplete>
+          <mat-error>
+            <app-field-error-display [formGroup]="form" [field]="'startHour'"></app-field-error-display>
+          </mat-error>
+        </mat-form-field>
+
+      </div>
+
+      <div class="date">
+
+        <mat-form-field>
+          <input matInput [matDatepicker]="pickerEnd" placeholder="Data de termino" formControlName="endDate">
+          <mat-datepicker-toggle matSuffix [for]="pickerEnd"></mat-datepicker-toggle>
+          <mat-datepicker #pickerEnd></mat-datepicker>
+          <mat-error>
+            <app-field-error-display [formGroup]="form" [field]="'endDate'"></app-field-error-display>
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input type="text" placeholder="Hora de termino" formControlName="endHour" aria-label="Number" matInput [matAutocomplete]="auto">
+          <mat-autocomplete #auto="matAutocomplete">
+            <mat-option *ngFor="let number of numbers" [value]="number">
+              {{ number }}
+            </mat-option>
+          </mat-autocomplete>
+          <mat-error>
+            <app-field-error-display [formGroup]="form" [field]="'endHour'"></app-field-error-display>
+          </mat-error>
+        </mat-form-field>
+
+      </div>
+
+      <div class="button-group">
+
+        <button mat-raised-button class="button-back" (click)="back()">
+          Voltar
+        </button>
+
+        <button mat-raised-button class="button-save" color="primary" type="submit" [disabled]="!form.valid">
+          {{btnLabel}}
+        </button>
+
+      </div>
+
+
+    </form>
+
+  </mat-card-content>
+
+</mat-card>

@@ -1,0 +1,32 @@
+.example-header-image {
+  background-image: url('https://cdn.icon-icons.com/icons2/1149/PNG/512/1486504340-calendar-date-event-month-schedule_81325.png');
+  background-size: cover;
+}
+
+.button-row {
+  position: fixed;
+  width: 56px;
+  left: 90%;
+  bottom: 15px;
+  margin-left: -28px;
+}
+
+.mat-icon {
+  margin-top: -5px;
+}
+
+.mat-card-content {
+  margin-left: 48px;
+}
+
+.actions {
+  float: right;
+}
+
+.actions .mat-mini-fab {
+  margin-left: 10px;
+}
+
+.actions .mat-button {
+  min-width: 53px;
+}
